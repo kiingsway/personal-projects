@@ -1,0 +1,107 @@
+@import url('https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&display=swap');
+
+.Card {
+  background-color: #333333;
+  opacity: 0.7;
+  padding: 10px 0;
+
+  &:hover {
+    opacity: 0.1;
+  }
+
+  &_Header {
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+
+    &_Title {
+      display: flex;
+      flex-direction: row;
+      column-gap: 10px;
+    }
+
+  }
+
+  &_Body {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+
+.CardTitle {
+  cursor: default;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: baseline;
+
+  & span,
+  small {
+    font-family: 'Jost' !important;
+    opacity: 0.8;
+  }
+
+  &_Header {
+    display: flex;
+    flex-direction: row;
+    column-gap: 6px;
+    align-items: baseline;
+
+    &_Input {
+      width: 32px;
+      font-size: 16px !important;
+      font-family: 'Jost' !important;
+
+      & input {
+        padding: 0 !important;
+        text-align: center !important;
+        font-weight: 500;
+      }
+    }
+  }
+
+  &>small {
+    font-size: 13px;
+    font-weight: 300;
+  }
+}
+
+.MoneyValue {
+
+  & div,
+  span,
+  small,
+  input {
+    font-family: 'Jost' !important;
+    opacity: 0.9;
+    cursor: default;
+    transition: all 100ms cubic-bezier(1, 0.03, 1, 1);
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+}
+
+
+.WorkHoursItem {
+  &_Body {
+    padding: 20px 26px;
+  }
+
+  &_Currency {
+    width: 25px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+  }
+
+  &_Date {
+    display: flex;
+    width: 60px;
+    justify-content: flex-start;
+  }
+}

@@ -1,0 +1,47 @@
+.Main {
+  padding: 30px;
+
+  &_Header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    column-gap: 20px;
+    justify-content: center;
+
+    & div,
+    span,
+    small,
+    input {
+      font-family: 'Jost' !important;
+      opacity: 0.95;
+    }
+  }
+}
+
+.MenuItem {
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+  column-gap: 10px;
+  font-family: 'Jost' !important;
+}
+
+.WageConversor {
+  display: flex;
+  align-items: center;
+  column-gap: 6px;
+  opacity: 0.8;
+
+  &_Dropdown {
+    & ul {
+      margin: 0 !important;
+      padding: 0 !important;
+    }
+  }
+}
+
+.NumberAddon {
+  width: 100px;
+  text-align: start;
+  padding-left: 6px;
+}

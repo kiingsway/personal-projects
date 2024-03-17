@@ -1,4 +1,7 @@
 {
+  "plugins": [
+    "custom-rules"
+  ],
   "extends": [
     "eslint:recommended",
     "plugin:react/recommended",
@@ -11,5 +14,19 @@
     "no-unused-vars": "warn",
     "no-undef": "off",
     "no-unreachable": "warn"
-  }
+  },
+  "overrides": [
+    {
+      "files": ["*.ts", "*.tsx"],
+      "rules": {
+        "custom-rules/function-type-requirement": "error"
+      }
+    },
+    {
+      "files": ["*.*sx"],
+      "rules": {
+        "custom-rules/button-title-requirement": "warn"
+      }
+    }
+  ]
 }

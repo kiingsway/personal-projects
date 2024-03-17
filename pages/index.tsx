@@ -1,13 +1,13 @@
 import { useContext, useLayoutEffect } from "react";
 import { AppContext } from "./_app";
-import { IUseAppStorage } from "@/app/hooks/useAppStorage";
 import appTabs from "@/app/tabs";
 import { useRouter } from 'next/navigation';
+import { IAppContext } from "@/interfaces";
 
 export default function Home(): null {
 
   const { push } = useRouter();
-  const { appStorage } = useContext(AppContext) as IUseAppStorage;
+  const { appStorage: { appStorage } } = useContext(AppContext) as IAppContext;
 
   const tab = appStorage?.last_tab || appTabs[0].key;
 

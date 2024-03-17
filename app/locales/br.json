@@ -7,5 +7,19 @@
   "UnfavoriteItem": "Remover dos favoritos",
   "OpenTab": "Abrir {{title}}",
   "TabSelected": "Rota {{title}} selecionada",
-  "ClearSearch": "Limpar pesquisa"
+  "ClearSearch": "Limpar pesquisa",
+  "Currency": "Moeda",
+  "IdealWage": "Salário ideal",
+  "Hour": "hora",
+  "Hour_one": "hora",
+  "Hour_other": "horas",
+  "Day": "dia",
+  "Week": "semana",
+  "Month": "mês",
+  "Year": "ano",
+  "WorkingDays": "dias úteis",
+  "CanadianDollars": "Dólares Canadense",
+  "USDollars": "Dólares Americano",
+  "BrazilianReals": "Reais",
+  "Euro": "Euros"
 }

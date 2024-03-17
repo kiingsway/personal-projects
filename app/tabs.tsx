@@ -9,18 +9,6 @@ const appTabs: ITab[] = [
     desc: t('WageCalculatorDescription'),
     icon: <FaCalculator />
   },
-  {
-    key: "ABC",
-    title: "ABC",
-    desc: t('WageCalculatorDescription'),
-    icon: <FaCalculator />
-  },
-  {
-    key: "DEF",
-    title: "DEF",
-    desc: t('WageCalculatorDescription'),
-    icon: <FaCalculator />
-  },
 ];
 
 export default appTabs;
