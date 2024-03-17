@@ -2,23 +2,27 @@ import React from 'react';
 import { Col, Card, Row } from 'antd';
 import CardTitle from './CardTitle';
 import MoneyValue from './MoneyValue';
-import { handleDatesParameters, getValueByDay, handleValueDayToValueType, getDateTypes } from '../params';
-import { WageContext } from '..';
 import styles from './components.module.scss';
 import { useTranslation } from 'react-i18next';
-import { IAppContext, ICurrenciesItem, ICurrencyExchange, IDateType, IWageContext, TCurrencies } from '@/interfaces';
-import { AppContext } from '@/pages/_app';
+import { ICurrenciesItem, ICurrencyExchange, IDateType, IUseCurrencies, TChangeCustomHour, TCurrencies } from '@/interfaces';
+import { handleDatesParameters, getValueByDay, getDateTypes, handleValueDayToValueType } from '@/pages-components/WageCalculatorParams';
 
 interface Props {
   workHour: number;
   selectedCurrency: ICurrenciesItem;
+  currencyState: IUseCurrencies;
+  currencyExchange: ICurrencyExchange;
+  customHour: number;
+  monthDays: number;
+  idealWage: number;
+  dateType: IDateType;
+  changeCustomHour: TChangeCustomHour;
 }
 
-export default function WorkHoursItem({ workHour, selectedCurrency }: Props): JSX.Element {
+export default function WorkHoursItem(p: Props): JSX.Element {
 
+  const { workHour, selectedCurrency, currencyState, currencyExchange, changeCustomHour, customHour, dateType, idealWage, monthDays } = p;
   const { t } = useTranslation();
-  const { currencyState, currencyExchange } = React.useContext(AppContext) as IAppContext;
-  const { customHour, monthDays, idealWage, dateType, changeCustomHour } = React.useContext(WageContext) as IWageContext;
 
   const workHours = workHour || customHour;
 
@@ -67,7 +71,6 @@ interface IConvertCurrencyFun {
   to: TCurrencies;
   currencyExchange: ICurrencyExchange;
 }
-
 
 function convertCurrencyExchange({ from, to, currencyExchange }: IConvertCurrencyFun): number {
 

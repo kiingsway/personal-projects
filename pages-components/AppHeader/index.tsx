@@ -11,19 +11,20 @@ import { IoCloseSharp } from "react-icons/io5";
 import appTabs from '@/app/tabs';
 import { useRouter } from 'next/router';
 import Tabs from './Tabs';
-import { AppContext } from '@/pages/_app';
-import { IAppContext } from '@/interfaces';
+import { IHandleTab } from '@/interfaces';
 
-export default function AppHeader(): JSX.Element {
+interface Props {
+  favoriteTabs: string[];
+  handleTab: IHandleTab;
+}
+
+export default function AppHeader({ favoriteTabs, handleTab }: Props): JSX.Element {
 
   const router = useRouter();
 
   const { t } = useTranslation();
-  const { appStorage: { appStorage, handleTab } } = React.useContext(AppContext) as IAppContext;
   const [routesWindow, { setTrue: openRWindow, setFalse: closeRWindow }] = useBoolean();
   const [searchTab, setSearchTab] = React.useState('');
-
-  const favoriteTabs = appStorage?.fav_tabs || [];
 
   const filteredTabs = React.useMemo(() => {
 

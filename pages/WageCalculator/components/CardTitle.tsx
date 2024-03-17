@@ -1,8 +1,8 @@
 import { InputNumber } from 'antd';
 import React from 'react';
 import styles from './components.module.scss';
-import { inputNumberProps } from '../params';
 import { useTranslation } from 'react-i18next';
+import { inputNumberProps } from '@/pages-components/WageCalculatorParams';
 
 interface Props {
   hour: number;

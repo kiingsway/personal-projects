@@ -14,6 +14,7 @@ interface ButtonsTabProps extends IIconLabel {
 }
 
 interface LanguagesProps {
+  languageItems: ILanguageItem[];
   language: ILanguageItem;
   t: TNextTranslation;
 }

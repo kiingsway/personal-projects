@@ -1,17 +1,14 @@
-import { TCurrencies, IAppContext } from "@/interfaces";
-import { AppContext } from "@/pages/_app";
+import { TCurrencies, IUseCurrencies } from "@/interfaces";
 import { SelectProps, Select } from "antd";
-import { useContext } from "react";
 
 interface Props {
   value: TCurrencies;
+  currencyState: IUseCurrencies;
   // eslint-disable-next-line no-unused-vars
-  onChange: (newCurrency: TCurrencies) => void
+  onChange: (newCurrency: TCurrencies) => void;
 }
 
-const SelectConvertedCurrencies = ({ value, onChange }: Props): JSX.Element => {
-
-  const { currencyState } = useContext(AppContext) as IAppContext;
+const SelectConvertedCurrencies = ({ value, onChange, currencyState }: Props): JSX.Element => {
 
   const options: SelectProps['options'] = currencyState.currenciesItems
     .map(({ key, label, symbol }) => ({ label: `${label} (${symbol})`, value: key as string }));

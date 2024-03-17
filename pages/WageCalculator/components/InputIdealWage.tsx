@@ -1,5 +1,5 @@
 import { InputNumber } from "antd";
-import { inputNumberProps } from "../params";
+import { inputNumberProps } from '@/pages-components/WageCalculatorParams';
 
 interface Props {
   value: number

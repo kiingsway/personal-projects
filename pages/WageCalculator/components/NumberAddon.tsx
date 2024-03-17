@@ -1,15 +1,18 @@
-import { IWageContext, TDateTypes } from "@/interfaces";
+import { IDateType, TDateTypes } from "@/interfaces";
 import { Select } from "antd";
 import { useTranslation } from "react-i18next";
-import { WageContext } from "..";
-import { getDateTypes } from "../params";
-import { useContext } from "react";
+import { getDateTypes } from '@/pages-components/WageCalculatorParams';
 import styles from '../WageCalculator.module.scss';
 
-const NumberAddon = (): JSX.Element => {
+interface Props {
+  dateType: IDateType;
+  // eslint-disable-next-line no-unused-vars
+  changeDateType: (newDateType: IDateType) => void;
+}
+
+const NumberAddon = ({ changeDateType, dateType }: Props): JSX.Element => {
 
   const { t } = useTranslation();
-  const { dateType, changeDateType } = useContext(WageContext) as IWageContext;
 
   const dateTypes = getDateTypes(t);
 

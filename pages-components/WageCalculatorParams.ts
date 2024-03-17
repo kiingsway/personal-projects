@@ -1,6 +1,6 @@
 import { SizeType } from 'antd/es/config-provider/SizeContext';
 import { InputNumberProps } from 'antd';
-import { TNextTranslation } from '@/interfacesImport';
+import { IDateType, TDateTypes, TNextTranslation } from '@/interfaces';
 
 export const workHoursList = [4, 6, 8, 0];
 

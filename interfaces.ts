@@ -1,12 +1,15 @@
-import { IUseAppStorage } from "./app/hooks/useAppStorage";
-import { IUseLanguage } from "./app/hooks/useLanguage";
-
 /* eslint-disable no-unused-vars */
+import { IUseAppStorage } from "./app/hooks/useAppStorage";
+import { IUseLanguage } from "./app/hooks/useLanguage"; import { TFunction } from 'i18next';
+
+
 export type TCurrencies = 'CAD' | 'BRL' | 'USD' | 'EUR';
 export type TTabs = 'interviewQuestions' | 'wageCalculator';
 export type TDateTypes = 'hour' | 'day' | 'week' | 'month' | 'year';
 export type TChangeCurrency = (newCurrency: TCurrencies) => void;
 export type TChangeCustomHour = (newHour?: string | number | null) => void;
+export type TNextTranslation = TFunction<"translation", undefined>;
+export type IHandleTab = (tab: string, action: "add" | "remove") => void;
 
 export interface ICurrenciesItem {
   key: TCurrencies;
@@ -24,8 +27,8 @@ export interface IUseCurrencies {
 
 export interface IAppContext {
   appStorage: IUseAppStorage;
-  currencyState: IUseCurrencies;
   currencyExchange: ICurrencyExchange;
+  currencyState: IUseCurrencies;
   language: IUseLanguage;
 }
 
@@ -55,4 +58,11 @@ export interface ICurrencyExchange {
   CAD: number;
   EUR: number;
   BRL: number;
+}
+
+export interface IAppStorage {
+  fav_tabs: string[];
+  last_tab?: string;
+  language: string;
+  currency: TCurrencies;
 }

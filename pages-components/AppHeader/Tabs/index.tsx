@@ -11,7 +11,6 @@ interface Props {
   favoriteTabs: string[];
   // eslint-disable-next-line no-unused-vars
   handleTab: (tab: string, action: "add" | "remove") => void;
-  // eslint-disable-next-line no-unused-vars
   router: NextRouter;
 }
 

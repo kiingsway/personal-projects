@@ -1,18 +1,16 @@
-import { IWageContext } from "@/interfaces";
 import { InputNumber } from "antd";
-import { WageContext } from "..";
-import { inputNumberProps } from "../params";
-import { useContext } from "react";
+import { inputNumberProps } from '@/pages-components/WageCalculatorParams';
 
 interface Props {
+  addonAfter: string;
+  monthDays: number
   // eslint-disable-next-line no-unused-vars
   onChange: (newValue: string | number | null) => void;
-  addonAfter: string;
 }
 
-const InputWorkingDays = (props: Props): JSX.Element => {
+const InputWorkingDays = (p: Props): JSX.Element => {
 
-  const { monthDays } = useContext(WageContext) as IWageContext;
+  const { monthDays, ...props } = p;
 
   return (
     <InputNumber

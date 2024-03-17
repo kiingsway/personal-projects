@@ -6,8 +6,6 @@ import { TbMenu2 } from 'react-icons/tb';
 import { HiMiniChevronDown } from 'react-icons/hi2';
 import { IoMdGlobe } from 'react-icons/io';
 import { ButtonsIconFunction, ButtonsMenuFunction, ButtonsTabFunction, DropdownValueFunction, LanguagesFunction, LinkFunction, SelectorFunction } from './interfaces';
-import { AppContext } from '@/pages/_app';
-import { IAppContext } from '@/interfaces';
 
 const Menu: ButtonsMenuFunction = props => (
   <button type='button' className={styles.Menu} {...props} title={props.title}>
@@ -61,10 +59,9 @@ const Selector: SelectorFunction = p => {
 };
 
 const Languages: LanguagesFunction = p => {
-  const { language: { items } } = React.useContext(AppContext) as IAppContext;
   const { language, t } = p;
   const Value = (): JSX.Element => !language ? <></> : <DropdownValue icon={language.icon} label={language.label} />;
-  return <Selector label={t('Language')} items={items} icon={<IoMdGlobe />}><Value /></Selector>;
+  return <Selector label={t('Language')} items={p.languageItems} icon={<IoMdGlobe />}><Value /></Selector>;
 };
 
 const Link: LinkFunction = p => {

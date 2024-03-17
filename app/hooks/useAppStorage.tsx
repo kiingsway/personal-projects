@@ -3,18 +3,10 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
 import { onlyUnique } from "../services/helpers";
-
-type TCurrencies = 'BRL' | 'USD' | 'EUR' | 'CAD';
-
-interface IAppStorage {
-  fav_tabs: string[];
-  last_tab?: string;
-  language: string;
-  currency: TCurrencies;
-}
+import { IAppStorage, TCurrencies } from "@/interfaces";
 
 export interface IUseAppStorage {
-  appStorage: IAppStorage | undefined;
+  appStorage: IAppStorage;
   handleTab: (tab: string, action: 'add' | 'remove') => void;
   changeLastTab: (last_tab: string) => void;
   changeCurrency: (currency: TCurrencies) => void;
@@ -32,15 +24,15 @@ function isValidAppStorage(parsedValue: any): boolean {
 export default function useAppStorage(): IUseAppStorage {
 
   const { i18n } = useTranslation();
-
-  const [appStorage, setAppStorage] = React.useState<IAppStorage>();
-
+  
   const defaultAppStorage: IAppStorage = {
     fav_tabs: [],
     last_tab: undefined,
     language: i18n.language,
     currency: 'CAD'
   };
+
+  const [appStorage, setAppStorage] = React.useState<IAppStorage>(defaultAppStorage);
 
   React.useEffect(() => {
     setAppStorage(prev => ({ ...defaultAppStorage, ...prev, language: i18n.language }));

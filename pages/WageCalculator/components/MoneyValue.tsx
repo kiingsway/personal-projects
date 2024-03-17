@@ -1,7 +1,7 @@
 import { Col, InputNumber } from 'antd';
 import React from 'react';
-import { inputNumberProps } from '../params';
 import styles from './components.module.scss';
+import { inputNumberProps } from '@/pages-components/WageCalculatorParams';
 
 interface Props {
   value: number;
