@@ -1,0 +1,165 @@
+@import '../../../variables';
+
+.Tab {
+  color: var(--neutral-25) !important;
+  padding: 6px 10px;
+  transition: all 100ms cubic-bezier(1, 0.03, 1, 1);
+  border-radius: 4px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background-color: transparent;
+  cursor: pointer;
+  width: 100%;
+  font-family: 'Jost';
+  border: 0;
+
+  &:hover {
+    background-color: var(--neutral-10) !important;
+    color: var(--neutral-90) !important;
+  }
+
+  &:active {
+    background-color: var(--black) !important;
+    color: var(--neutral-90) !important;
+    box-shadow: 1px 1px 4px 2px rgba(51, 51, 51, 1) inset;
+    -webkit-box-shadow: 1px 1px 4px 2px rgba(51, 51, 51, 1) inset;
+    -moz-box-shadow: 1px 1px 4px 2px rgba(51, 51, 51, 1) inset;
+  }
+
+  &_Selected {
+    cursor: default;
+    color: var(--neutral-90) !important;
+    background-color: var(--neutral-25) !important;
+
+    &:hover {
+      background-color: var(--neutral-10) !important;
+    }
+
+    &:active {
+      box-shadow: none;
+      background-color: var(--neutral-10) !important;
+    }
+  }
+
+}
+
+.Icon {
+  &>span {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    column-gap: 10px;
+    font-weight: 500;
+    justify-content: center;
+    margin-inline-start: 0 !important;
+    margin-inline-end: 0 !important;
+  }
+}
+
+.Menu {
+  all: unset;
+  outline: revert;
+  padding: 6px 10px;
+  opacity: 0.8;
+  transition: all 75ms cubic-bezier(1, 0.03, 1, 1);
+  border-radius: 4px;
+  display: flex;
+  background-color: transparent;
+  color: var(--neutral-75-light);
+
+  &:not(:disabled) {
+    cursor: pointer;
+
+    &:hover {
+      color: var(--neutral-25-light);
+      background-color: var(--neutral-40);
+    }
+
+    &:active {
+      box-shadow: 1px 1px 4px 2px rgba(51, 51, 51, 1) inset;
+      -webkit-box-shadow: 1px 1px 4px 2px rgba(51, 51, 51, 1) inset;
+      -moz-box-shadow: 1px 1px 4px 2px rgba(51, 51, 51, 1) inset;
+    }
+  }
+
+  &:disabled {
+    visibility: hidden;
+  }
+
+}
+
+.Selector {
+  display: flex;
+  flex-direction: column;
+  row-gap: 12px;
+
+  color: var(--neutral-10) !important;
+
+  &_Value {
+    display: flex;
+    align-items: center;
+    column-gap: 10px;
+    color: var(--neutral-10) !important;
+  }
+
+  &_Label {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    column-gap: 8px;
+
+    &>span {
+      font-weight: 500;
+    }
+  }
+}
+
+.Link {
+  position: relative;
+  color: #AAAAAA;
+  padding: 5px !important;
+  height: 32px;
+
+  &::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 1px;
+    background-color: #AAAAAA;
+    border-radius: 4px;
+    transform: scaleX(0);
+    transform-origin: bottom left;
+    transition: transform 0.3s ease;
+  }
+
+  &_Selected {
+    cursor: default;
+    color: #FFFFFF !important;
+
+    &:active {
+      color: #FFFFFF !important;
+    }
+
+    &::after {
+      transform: scaleX(1) !important;
+    }
+  }
+
+  &_NotSelected {
+
+    &:hover {
+      color: #FFFFFF !important;
+
+      &::after {
+        transform: scaleX(1);
+      }
+    }
+
+    &:active {
+      color: #777777;
+    }
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "WageCalculatorDescription": "Calculadora de salário",
+  "RoutesConfig": "Rotas e configurações",
+  "SearchTabPlaceholder": "Pesquisar rota...",
+  "OpenRoutesMenu": "Abrir menu de rotas e configurações",
+  "FavoriteItem": "Adicionar aos favoritos",
+  "UnfavoriteItem": "Remover dos favoritos",
+  "OpenTab": "Abrir {{title}}",
+  "TabSelected": "Rota {{title}} selecionada",
+  "ClearSearch": "Limpar pesquisa"
+}
