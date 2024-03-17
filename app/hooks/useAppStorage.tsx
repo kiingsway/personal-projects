@@ -13,6 +13,13 @@ interface IAppStorage {
   currency: TCurrencies;
 }
 
+export interface IUseAppStorage {
+  appStorage: IAppStorage | undefined;
+  handleTab: (tab: string, action: 'add' | 'remove') => void;
+  changeLastTab: (last_tab: string) => void;
+  changeCurrency: (currency: TCurrencies) => void;
+}
+
 function isValidAppStorage(parsedValue: any): boolean {
 
   const requiredProps: (keyof IAppStorage)[] = ['fav_tabs', 'language', 'currency'];
@@ -20,13 +27,6 @@ function isValidAppStorage(parsedValue: any): boolean {
   for (const prop of requiredProps) if (!(prop in parsedValue)) return false;
 
   return true;
-}
-
-export interface IUseAppStorage {
-  appStorage: IAppStorage | undefined;
-  handleTab: (tab: string, action: 'add' | 'remove') => void;
-  changeLastTab: (last_tab: string) => void;
-  changeCurrency: (currency: TCurrencies) => void;
 }
 
 export default function useAppStorage(): IUseAppStorage {
@@ -68,7 +68,7 @@ export default function useAppStorage(): IUseAppStorage {
 
   }, []);
 
-  function handleTab(tab: string, action: 'add' | 'remove') {
+  function handleTab(tab: string, action: 'add' | 'remove'): void {
     setAppStorage(prev => {
 
       const prevTabs = prev?.fav_tabs || [];

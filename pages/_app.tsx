@@ -11,6 +11,7 @@ import '@/app/i18n';
 import useAppStorage from '@/app/hooks/useAppStorage';
 import useCurrencies from '@/app/hooks/currencies';
 import { IAppContext } from '@/interfaces';
+import { useLanguage } from '@/app/hooks/useLanguage';
 
 const { Header, Content, Footer } = Layout;
 
@@ -24,6 +25,7 @@ export default function App({ Component, pageProps }: AppProps): JSX.Element {
 
   const currencyState = useCurrencies();
   const appStorage = useAppStorage();
+  const language = useLanguage();
 
   return (
     <>
@@ -36,7 +38,7 @@ export default function App({ Component, pageProps }: AppProps): JSX.Element {
           </Header>
           <Content className={styles.app_content}>
             <div className={styles.app_content_main}>
-              <AppContext.Provider value={{ appStorage, currencyState, currencyExchange }}>
+              <AppContext.Provider value={{ appStorage, currencyState, currencyExchange, language }}>
                 <Component {...pageProps} />
               </AppContext.Provider>
             </div>

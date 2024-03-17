@@ -6,10 +6,11 @@ import { TbMenu2 } from 'react-icons/tb';
 import { HiMiniChevronDown } from 'react-icons/hi2';
 import { IoMdGlobe } from 'react-icons/io';
 import { ButtonsIconFunction, ButtonsMenuFunction, ButtonsTabFunction, DropdownValueFunction, LanguagesFunction, LinkFunction, SelectorFunction } from './interfaces';
-import { AppContext, IAppContext } from '@/pages/_app';
+import { AppContext } from '@/pages/_app';
+import { IAppContext } from '@/interfaces';
 
 const Menu: ButtonsMenuFunction = props => (
-  <button type='button' className={styles.Menu} {...props}>
+  <button type='button' className={styles.Menu} {...props} title={props.title}>
     <TbMenu2 />
   </button>
 );
@@ -78,8 +79,8 @@ const Link: LinkFunction = p => {
     className,
     styles.Icon,
     styles.Link,
-    {[styles.Link_Selected]: selected},
-    {[styles.Link_NotSelected]: !selected},
+    { [styles.Link_Selected]: selected },
+    { [styles.Link_NotSelected]: !selected },
   ]);
 
   return (

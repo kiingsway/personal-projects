@@ -4,24 +4,26 @@ import styles from './AppHeader.module.scss';
 import Buttons from '../Buttons';
 import { CgMenuBoxed } from "react-icons/cg";
 import useBoolean from '@/app/hooks/useBoolean';
-import { Button, Divider, Drawer, Input } from 'antd';
+import { Divider, Drawer, Input } from 'antd';
 import { rawText } from '@/app/services/helpers';
 import { IoMdSearch } from "react-icons/io";
 import { IoCloseSharp } from "react-icons/io5";
-import useFavoriteTabs from '@/app/hooks/useFavoriteTabs';
 import appTabs from '@/app/tabs';
 import { useRouter } from 'next/router';
 import Tabs from './Tabs';
+import { AppContext } from '@/pages/_app';
+import { IAppContext } from '@/interfaces';
 
-// export default function AppHeader(): JSX.Element {
-export default function AppHeader() {
+export default function AppHeader(): JSX.Element {
 
   const router = useRouter();
 
   const { t } = useTranslation();
+  const { appStorage: { appStorage, handleTab } } = React.useContext(AppContext) as IAppContext;
   const [routesWindow, { setTrue: openRWindow, setFalse: closeRWindow }] = useBoolean();
   const [searchTab, setSearchTab] = React.useState('');
-  const { favoriteTabs, handleTab } = useFavoriteTabs();
+
+  const favoriteTabs = appStorage?.fav_tabs || [];
 
   const filteredTabs = React.useMemo(() => {
 
@@ -36,10 +38,6 @@ export default function AppHeader() {
 
   const favTabs = filteredTabs.filter(t => favoriteTabs.includes(t.key));
   const nonFavTabs = filteredTabs.filter(t => !favoriteTabs.includes(t.key));
-
-  const btn1 = <button>a</button>
-  const btn2 = <Buttons.Icon>a</Buttons.Icon>;
-  console.log('a');
 
   return (
     <div className={styles.main}>

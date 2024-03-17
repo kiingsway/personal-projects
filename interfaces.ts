@@ -1,4 +1,5 @@
 import { IUseAppStorage } from "./app/hooks/useAppStorage";
+import { IUseLanguage } from "./app/hooks/useLanguage";
 
 /* eslint-disable no-unused-vars */
 export type TCurrencies = 'CAD' | 'BRL' | 'USD' | 'EUR';
@@ -25,6 +26,7 @@ export interface IAppContext {
   appStorage: IUseAppStorage;
   currencyState: IUseCurrencies;
   currencyExchange: ICurrencyExchange;
+  language: IUseLanguage;
 }
 
 export interface ITab {

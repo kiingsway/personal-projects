@@ -3,7 +3,7 @@ import { NextRouter } from "next/router";
 import { useTranslation } from "react-i18next";
 import { FaStar, FaRegStar } from "react-icons/fa";
 import Buttons from "../../Buttons";
-import styles from'../AppHeader.module.scss';
+import styles from '../AppHeader.module.scss';
 import classNames from "classnames";
 
 interface Props {
@@ -44,7 +44,7 @@ export default function Tabs({ favoriteTabs, handleTab, tabs, router }: Props): 
       return (
         <div key={key} className={styles.window_tabs_item}>
           <FavoriteButton />
-          <Buttons.Icon {...props}>{title}</Buttons.Icon>
+          <Buttons.Icon {...props} title={props.title}>{title}</Buttons.Icon>
         </div>
       );
     })}</>
