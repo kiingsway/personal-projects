@@ -3,14 +3,12 @@ import styles from './WageCalculator.module.scss';
 import { Col, Row } from 'antd';
 import { useTranslation } from 'react-i18next';
 import WorkHoursItem from './components/WorkHoursItem';
-import { IAppContext, IDateType, IWageContext, TChangeCustomHour, TCurrencies } from '@/interfaces';
+import { IAppContext, IDateType, TChangeCustomHour, TCurrencies } from '@/interfaces';
 import InputIdealWage from './components/InputIdealWage';
 import InputWorkingDays from './components/InputWorkingDays';
 import NumberAddon from './components/NumberAddon';
 import SelectConvertedCurrencies from './components/SelectConvertedCurrencies';
-import { defaultIdealWage, defaultCustomHour, defaultMonthDays, defaultDateType, getDateTypes, workHoursList } from '@/pages-components/WageCalculatorParams';
-
-export const WageContext = React.createContext<IWageContext | undefined>(undefined);
+import { defaultIdealWage, defaultCustomHour, defaultMonthDays, defaultDateType, workHoursList } from '@/pages-components/WageCalculatorParams';
 
 export default function WageCalculator({ currencyState, currencyExchange }: IAppContext): JSX.Element {
 
@@ -33,7 +31,6 @@ export default function WageCalculator({ currencyState, currencyExchange }: IApp
   }
 
   return (
-    <WageContext.Provider value={{ monthDays, customHour, changeCustomHour, dateType, dateTypes: getDateTypes(t), idealWage, changeDateType }}>
       <Row gutter={[20, 20]} className={styles.Main}>
         <Col span={24} className={styles.Main_Header}>
 
@@ -70,7 +67,6 @@ export default function WageCalculator({ currencyState, currencyExchange }: IApp
         ))}
 
       </Row>
-    </WageContext.Provider>
   );
 }
 

@@ -33,7 +33,7 @@ export default function WorkHoursItem(p: Props): JSX.Element {
   const cardTitle = <CardTitle hour={workHours} custom={!workHour} changeCustomHour={changeCustomHour} />;
 
   return (
-    <Col span={24} sm={12} xxl={6}>
+    <Col span={24} sm={12}>
       <Card title={cardTitle} bordered={false} classNames={{ body: styles.WorkHoursItem_Body }}>
 
         <Row gutter={[8, 8]}>
