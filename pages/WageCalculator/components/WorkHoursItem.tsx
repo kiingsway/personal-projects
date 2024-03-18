@@ -45,7 +45,7 @@ export default function WorkHoursItem(p: Props): JSX.Element {
 
             const value = handleValueDayToValueType({ dateTypeKey, monthDays, value: valueByDay, workHours });
 
-            const [from, to] = [selectedCurrency.key, currencyState.currency.key];
+            const [from, to] = [selectedCurrency?.key, currencyState.currency?.key];
             const currencyRate = convertCurrencyExchange({ from, to, currencyExchange });
 
             return (
