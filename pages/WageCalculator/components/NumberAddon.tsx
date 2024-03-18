@@ -17,7 +17,7 @@ const NumberAddon = ({ changeDateType, dateType }: Props): JSX.Element => {
   const dateTypes = getDateTypes(t);
 
   const onChange = (newKey: TDateTypes): void => {
-    const dateType = dateTypes.find(d => d.key === newKey);
+    const dateType = dateTypes.find(d => d?.key === newKey);
     if (dateType) changeDateType(dateType);
   };
 
@@ -29,7 +29,7 @@ const NumberAddon = ({ changeDateType, dateType }: Props): JSX.Element => {
       size='small'
       variant='borderless'
       onChange={onChange}
-      value={dateType.key}
+      value={dateType?.key}
       options={options}
     />
   );

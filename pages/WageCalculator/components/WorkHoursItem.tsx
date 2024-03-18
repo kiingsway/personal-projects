@@ -28,7 +28,7 @@ export default function WorkHoursItem(p: Props): JSX.Element {
 
   const datesParameters = handleDatesParameters({ monthDays, workHours });
 
-  const valueByDay = getValueByDay({ value: idealWage, monthDays, dateTypeKey: dateType.key, workHours });
+  const valueByDay = getValueByDay({ value: idealWage, monthDays, dateTypeKey: dateType?.key, workHours });
 
   const cardTitle = <CardTitle hour={workHours} custom={!workHour} changeCustomHour={changeCustomHour} />;
 
@@ -41,7 +41,7 @@ export default function WorkHoursItem(p: Props): JSX.Element {
           {datesParameters.map(({ type }) => {
 
             const dateTypes = getDateTypes(t);
-            const { key: dateTypeKey, title } = dateTypes.find(dt => dt.key === type) as IDateType;
+            const { key: dateTypeKey, title } = dateTypes.find(dt => dt?.key === type) as IDateType;
 
             const value = handleValueDayToValueType({ dateTypeKey, monthDays, value: valueByDay, workHours });
 
