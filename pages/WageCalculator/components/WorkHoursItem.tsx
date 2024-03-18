@@ -48,6 +48,8 @@ export default function WorkHoursItem(p: Props): JSX.Element {
             const [from, to] = [selectedCurrency?.key, currencyState.currency?.key];
             const currencyRate = convertCurrencyExchange({ from, to, currencyExchange });
 
+            if (!selectedCurrency) return <React.Fragment key={dateTypeKey} />;
+
             return (
               <MoneyValue
                 currencyRate={currencyRate}
